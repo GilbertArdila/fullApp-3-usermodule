@@ -53,9 +53,11 @@
 }
 @media screen and (min-width: 1024px){
     .section{
-        width: 1136px;
+        
         height: 306px;
         gap:16px;
+        padding-left: 25px;
+        
     }
     .section__card{
         grid-template-columns: repeat(6, 1fr);

@@ -9,6 +9,7 @@ const Section = () => {
   const handleResize = () => {
     setWindowWidth(window.innerWidth);
   };
+  
   useEffect(() => {
     window.addEventListener("resize", handleResize);
     return () => {
@@ -25,19 +26,19 @@ const Section = () => {
       <div className="section__card">
         {!isDesktop ? (
           <>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            <Card show={false} />
+            <Card show={false} />
+            <Card  show={false}/>
+            <Card show={false}/>
           </>
         ) : (
           <>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            <Card show={false}/>
+            <Card show={false}/>
+            <Card show={false}/>
+            <Card show={false}/>
+            <Card show={false}/>
+            <Card show={false}/>
           </>
         )}
       </div>

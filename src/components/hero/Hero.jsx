@@ -1,9 +1,10 @@
 import "./index.css";
+import Button from "../../subComponents/button/Button";
 
 const Hero = () => {
   return (
     <div className="hero">
-      <button className="hero__btn">Ver consolas</button>
+      <Button title={"Ver consolas"}/>
     </div>
   );
 };
