@@ -1,0 +1,38 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 145px;
+    height:249px;
+    gap: 8px;
+}
+.card img{
+    width: 140px;
+    height: 174px;
+   
+
+}
+.card__title
+{
+    font-family: 'Railway', sans-serif;
+    font-size:1.4rem;
+    font-weight: 500;
+    line-height: 16.44px;
+    text-transform: capitalize;
+}
+.card__price{
+    font-family: 'Railway', sans-serif;
+    font-weight: 700;
+    font-size: 1.6rem;  
+    line-height: 18.75px;
+}
+.card__link{
+    font-family: 'Railway', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 16.44px;
+    color: #2a7ae4;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: 0.3s;
+}
