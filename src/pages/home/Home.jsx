@@ -1,9 +1,10 @@
+import Hero from "../../components/hero/Hero"
 import Layout from "../../layout/Layout"
 
 const Home = () => {
   return (
     <Layout>
-        <p>Hello word from home</p>
+        <Hero />
     </Layout>
   
   )
