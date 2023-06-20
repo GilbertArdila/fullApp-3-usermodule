@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { useParams } from "react-router-dom";
 
 import Layout from "../../layout/Layout";
 import Card from "../../subComponents/card/Card";
@@ -12,6 +12,7 @@ const Products = () => {
   const isDesktop = windowWidth >= 1024;
   const isTablet = windowWidth >= 768;
   const isMobile = windowWidth >= 320;
+  const { category } = useParams();
   let cardNumber = 0;
 
   const handleResize = () => {
@@ -35,7 +36,7 @@ const Products = () => {
 
   return (
     <Layout>
-      <h3 className="products__title">Categoría Consolas</h3>
+      <h3 className="products__title">Categoría {category}</h3>
       <div className="products__content">
       {Array.from({ length: cardNumber }).map((_, index) => (
         <Card key={index} show={true} />

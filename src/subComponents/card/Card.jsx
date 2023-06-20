@@ -1,22 +1,44 @@
-import { NavLink } from "react-router-dom";
+import { NavLink,useLocation,useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
 
+import { URL } from "../../api/Url";
 import "./index.css";
 
-const Card = ({ show }) => {
+const Card = ({ id }) => {
   Card.PropTypes = {
-    show: PropTypes.bool.isRequired,
+    id: PropTypes.node.isRequired,
+    
   };
+
+  const [data, setData] = useState([]);
+  const location = useLocation();
+
+  const getData = async () => {
+    try {
+      const response = await axios.get(`${URL}/geeks/${id}`);
+      setData(response.data);
+     
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getData();
+  }, []);
+
+  
+
   return (
     <div className="card">
-      <img
-        src="https://firebasestorage.googleapis.com/v0/b/the-geek-store-9bbe6.appspot.com/o/afiche.webp?alt=media&token=428db821-8fcb-43cc-a45c-7e5332851294"
-        alt="imagen"
-      />
-      <p className="card__title">Producto xyz</p>
-      <p className="card__price">$ 60.00</p>
-      {!show ?<NavLink className="card__link">Ver producto </NavLink>
-      : <NavLink className="card__link">Ver más</NavLink>}
+      <img src={data.url} alt={data.name} />
+
+      <p className="card__title">{data.name}</p>
+      <p className="card__price">${data.price}</p>
+     <NavLink to={`/product/${id}`} className="card__link" >
+        Ver producto
+      </NavLink>
       
     </div>
   );

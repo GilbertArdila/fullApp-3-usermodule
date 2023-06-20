@@ -4,11 +4,13 @@
     justify-content: flex-end;
     width: 145px;
     height:249px;
-    gap: 8px;
+    
 }
+
 .card img{
     width: 140px;
     height: 174px;
+    
    
 
 }
@@ -19,6 +21,8 @@
     font-weight: 500;
     line-height: 16.44px;
     text-transform: capitalize;
+    width: 145px;
+    height: 32px;
 }
 .card__price{
     font-family: 'Railway', sans-serif;
