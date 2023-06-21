@@ -1,46 +1,53 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+import { getCategories, getByCategory } from "../../api/APIServices";
 import Layout from "../../layout/Layout";
 import Card from "../../subComponents/card/Card";
 import "./index.css";
 
 const Products = () => {
- 
+  const [categories, setCategories] = useState([]);
+  const [products, setProducts] = useState([]);
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const isDesktop = windowWidth >= 1024;
-  const isTablet = windowWidth >= 768;
-  const isMobile = windowWidth >= 320;
   const { category } = useParams();
-  let cardNumber = 0;
+  let categoryId = 0;
 
-  const handleResize = () => {
-    setWindowWidth(window.innerWidth);
+  const getCategoriesData = async () => {
+    const response = await getCategories();
+    setCategories(response);
+  };
+
+  const getProductsByCategory = async () => {
+    const response = await getByCategory(categoryId);
+    setProducts(response);
   };
 
   useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    getCategoriesData();
   }, []);
 
-  if (isDesktop) {
-    cardNumber = 12;
-  } else if (isTablet) {
-    cardNumber = 8;
-  } else if (isMobile) {
-    cardNumber = 4;
-  }
+  useEffect(() => {
+    for (let i = 0; i < categories.length; i++) {
+      if (categories[i].name === category) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        categoryId = categories[i].id;
+      }
+    }
+    getProductsByCategory(categoryId);
+  }, [categories]);
 
   return (
     <Layout>
       <h3 className="products__title">Categoría {category}</h3>
       <div className="products__content">
-      {Array.from({ length: cardNumber }).map((_, index) => (
-        <Card key={index} show={true} />
-      ))}
+        {products.length === 0 ? (
+          <p>Cargando...</p>
+        ) : (
+          products.map((product) => (
+            <Card key={product.id} producto={product} />
+          ))
+        )}
       </div>
     </Layout>
   );

@@ -1,21 +1,22 @@
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import axios from "axios";
 
-import { URL } from "../../api/Url";
+import { getByCategory } from "../../api/APIServices";
 import Card from "../../subComponents/card/Card";
 import "./index.css";
 
+// eslint-disable-next-line react/prop-types
 const Section = ({ category, id }) => {
+
   Section.PropTypes = {
     category: PropTypes.node.isRequired,
     id: PropTypes.node.isRequired,
   };
-  const [data, setData] = useState([]);
+  const [product, setProduct] = useState([]);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  const isMobile = windowWidth >= 320;
+  
   const isTablet = windowWidth >= 768;
   const isDesktop = windowWidth >= 1024;
   let cardNumber = isDesktop ? 6 : isTablet ? 4 : 4;
@@ -24,19 +25,15 @@ const Section = ({ category, id }) => {
     setWindowWidth(window.innerWidth);
   };
 
-  //getting  products by category
-  const getData = async () => {
-    try {
-      const response = await axios.get(`${URL}/geeks/category/${id}`);
-      setData(response.data);
-     
-    } catch (error) {
-      console.log(error);
-    }
+  
+  const getProducts = async () => {
+    const products = await getByCategory(id);
+    setProduct(products);
+    
   };
 
   useEffect(() => {
-    getData();
+    getProducts();
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -52,8 +49,8 @@ const Section = ({ category, id }) => {
         </NavLink>
       </div>
       <div className="section__card">
-        {data.slice(0, cardNumber).map((product) => {
-          return <Card key={product.id} id={product.id}  />;
+        {product.slice(0, cardNumber).map((product) => {
+          return <Card key={product.id} producto={product} />;
         })}
       </div>
     </section>
