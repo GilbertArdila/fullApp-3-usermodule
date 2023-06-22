@@ -5,6 +5,7 @@ import "./index.css";
 import Layout from "../../layout/Layout";
 import { getProduct, getByCategory } from "../../api/APIServices";
 import Card from "../../subComponents/card/Card";
+import Loading from "../../components/loading/Loading"
 
 const Product = () => {
   const [product, setProduct] = useState([{}]);
@@ -53,7 +54,7 @@ const Product = () => {
         <h3 className="product__similar--title">Productos similares</h3>
         <div className="product__similar">
           {product.categoryId === undefined ? (
-            <p>...cargando</p>
+            <Loading/>
           ) : (
             similarProduct.map((product) => {
               return <Card key={product.id} producto={product} />;

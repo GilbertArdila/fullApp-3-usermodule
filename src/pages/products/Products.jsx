@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { getCategories, getByCategory } from "../../api/APIServices";
 import Layout from "../../layout/Layout";
 import Card from "../../subComponents/card/Card";
+import Loading from "../../components/loading/Loading";
 import "./index.css";
 
 const Products = () => {
@@ -41,13 +42,14 @@ const Products = () => {
     <Layout>
       <h3 className="products__title">Categoría {category}</h3>
       <div className="products__content">
-        {products.length === 0 ? (
-          <p>Cargando...</p>
-        ) : (
-          products.map((product) => (
-            <Card key={product.id} producto={product} />
-          ))
-        )}
+        {products.length ===0 &&
+        <div className="loading__content">
+          <Loading />
+        </div>
+        }
+        {products.map((product) => (
+          <Card key={product.id} producto={product} />
+        ))}
       </div>
     </Layout>
   );
