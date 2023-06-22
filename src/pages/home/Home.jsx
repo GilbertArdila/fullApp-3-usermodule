@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Layout from "../../layout/Layout";
 import Hero from "../../components/hero/Hero";
 import Section from "../../components/section/Section";
+import Loading from "../../components/loading/Loading";
 import { getCategories } from "../../api/APIServices";
 
 const Home = () => {
@@ -21,7 +22,10 @@ const Home = () => {
     <Layout>
       <Hero />
       {data.length === 0 ? (
-        <p>Cargando...</p>
+        <div style={{width:'100vw',height:'100vh', margin:'30px 0 0 20px'}}>
+          <Loading />
+        </div>
+       
       ) : (
         data.map((item) => {
           return <Section key={item.id} category={item.name} id={item.id} />;

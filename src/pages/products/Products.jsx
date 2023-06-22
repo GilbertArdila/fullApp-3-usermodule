@@ -41,13 +41,10 @@ const Products = () => {
   return (
     <Layout>
       <h3 className="products__title">Categoría {category}</h3>
+      {products.length === 0 && <Loading />}
       <div className="products__content">
-        {products.length ===0 &&
-        <div className="loading__content">
-          <Loading />
-        </div>
-        }
-        {products.map((product) => (
+        
+      {products.map((product) => (
           <Card key={product.id} producto={product} />
         ))}
       </div>
