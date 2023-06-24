@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import propTypes from "prop-types";
 
+
 import { getByCategory } from "../../api/APIServices";
 import Card from "../../subComponents/card/Card";
 import "./index.css";

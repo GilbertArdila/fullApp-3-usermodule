@@ -55,16 +55,7 @@
     line-height: 16.44px;
     color: #464646;
 }
-.product__similar{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
-    grid-gap: 20px;
-    justify-items: center;
-    width: 100%;
-    margin: 20px;
 
-}
 .product__similar--title{
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
@@ -80,17 +71,13 @@
     .product__card{
         flex-direction: row;
     }
-    .product__similar{
-        grid-template-columns: repeat(4, 1fr);
-    }
+    
     .product__similar--title{
         font-size: 3rem;
     }
 }
 @media (min-width: 1024px){
-    .product__similar{
-        grid-template-columns: repeat(6, 1fr);
-    }
+    
     .product__card--title{
         font-size: 3rem;
     }

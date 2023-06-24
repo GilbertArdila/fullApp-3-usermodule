@@ -10,3 +10,20 @@ html{
 body{
   background-color: #EAF2FD;
 }
+.products__content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  margin: 1rem 0;
+  padding: 0 1rem;
+}
+@media screen and (min-width: 768px) {
+  .products__content {
+    grid-template-columns: repeat(4, 1fr);
+  } 
+}
+@media screen and (min-width: 1024px) {
+  .products__content {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}

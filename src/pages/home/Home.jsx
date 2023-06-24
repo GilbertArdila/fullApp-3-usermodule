@@ -1,5 +1,6 @@
 import { useContext } from "react";
 
+
 import { SearcherContext } from "../../context/index";
 import Layout from "../../components/layout/Layout";
 import Hero from "../../components/hero/Hero";
@@ -17,9 +18,11 @@ const Home = () => {
       });
     } else {
       if (context.filteredData?.length > 0) {
-        return context.filteredData?.map((item) => {
-          return <Card producto={item} key={item.id} />;
-        });
+        return ( <div className="products__content">
+          {context.filteredData?.map((product) => (
+            <Card key={product.id} producto={product} />
+          ))}
+        </div>)
       } else {
         return context.categories?.map((item) => {
           return <Section key={item.id} category={item.name} id={item.id} />;
