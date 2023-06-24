@@ -1,35 +1,42 @@
-import { useState, useEffect } from "react";
+import { useContext } from "react";
 
-import Layout from "../../layout/Layout";
+import { SearcherContext } from "../../context/index";
+import Layout from "../../components/layout/Layout";
 import Hero from "../../components/hero/Hero";
 import Section from "../../components/section/Section";
 import Loading from "../../components/loading/Loading";
-import { getCategories } from "../../api/APIServices";
+import Card from "../../subComponents/card/Card";
 
 const Home = () => {
-  const [data, setData] = useState([]);
+  const context = useContext(SearcherContext);
 
-  useEffect(() => {
-    getData();
-  }, []);
-
-  const getData = async () => {
-    const categories = await getCategories();
-    setData(categories);
+  const render = () => {
+    if (context.searcher === "") {
+      return context.categories?.map((item) => {
+        return <Section key={item.id} category={item.name} id={item.id} />;
+      });
+    } else {
+      if (context.filteredData?.length > 0) {
+        return context.filteredData?.map((item) => {
+          return <Card producto={item} key={item.id} />;
+        });
+      } else {
+        return context.categories?.map((item) => {
+          return <Section key={item.id} category={item.name} id={item.id} />;
+        });
+      }
+    }
   };
 
   return (
     <Layout>
       <Hero />
-      {data.length === 0 ? (
-        <div style={{width:'100vw',height:'100vh', margin:'30px 0 0 20px'}}>
+      {context.categories.length === 0 ? (
+        <div style={{ marginLeft: "30px", marginTop: "30px", width: "100vw" }}>
           <Loading />
         </div>
-       
       ) : (
-        data.map((item) => {
-          return <Section key={item.id} category={item.name} id={item.id} />;
-        })
+        render()
       )}
     </Layout>
   );

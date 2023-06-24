@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-import Layout from "../../layout/Layout"
+import Layout from "../../components/layout/Layout"
 import './index.css'
 
 const NotFound = () => {

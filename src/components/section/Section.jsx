@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
-import PropTypes from "prop-types";
+import propTypes from "prop-types";
 
 import { getByCategory } from "../../api/APIServices";
 import Card from "../../subComponents/card/Card";
@@ -9,9 +9,9 @@ import "./index.css";
 // eslint-disable-next-line react/prop-types
 const Section = ({ category, id }) => {
 
-  Section.PropTypes = {
-    category: PropTypes.node.isRequired,
-    id: PropTypes.node.isRequired,
+  Section.propTypes = {
+    category: propTypes.node.isRequired,
+    id: propTypes.node.isRequired,
   };
   const [product, setProduct] = useState([]);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);

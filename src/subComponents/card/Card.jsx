@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom";
-import PropTypes from "prop-types";
+import propTypes from "prop-types";
 
 import "./index.css";
 
 // eslint-disable-next-line react/prop-types
 const Card = ({ producto }) => {
-  Card.PropTypes = {
-    producto: PropTypes.node.isRequired,
+  Card.propTypes = {
+    producto: propTypes.node.isRequired,
   };
   // eslint-disable-next-line react/prop-types
   const { id, name, price, url } = producto;

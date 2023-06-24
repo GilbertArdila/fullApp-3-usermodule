@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import { getCategories, getByCategory } from "../../api/APIServices";
-import Layout from "../../layout/Layout";
+import Layout from "../../components/layout/Layout";
 import Card from "../../subComponents/card/Card";
 import Loading from "../../components/loading/Loading";
 import "./index.css";
