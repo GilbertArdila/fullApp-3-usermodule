@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink  } from "react-router-dom";
 import propTypes from "prop-types";
 
 import "./index.css";
@@ -10,6 +10,11 @@ const Card = ({ producto }) => {
   };
   // eslint-disable-next-line react/prop-types
   const { id, name, price, url } = producto;
+  
+
+  const handleClick = () => {
+    window.scrollTo(0, 0);
+  };
 
   return (
     <div className="card">
@@ -17,7 +22,10 @@ const Card = ({ producto }) => {
 
       <p className="card__title">{name}</p>
       <p className="card__price">${price}</p>
-      <NavLink to={`/product/${id}`} className="card__link">
+      <NavLink 
+      to={`/product/${id}`} 
+      className="card__link"
+      onClick={handleClick}>
         Ver producto
       </NavLink>
     </div>
