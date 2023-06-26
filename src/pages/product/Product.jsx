@@ -71,16 +71,16 @@ const Product = () => {
     <Layout>
       <div className="product__content">
         <div className="product__card">
-          <img src={product.url} alt={product.name} />
+          <img src={product?.url} alt={product?.name} />
           <div className="product__card--text">
-            <p className="product__card--title"> {product.name}</p>
-            <p className="product__card--price">${product.price}</p>
-            <p className="product__card--description">{product.description}</p>
+            <p className="product__card--title"> {product?.name}</p>
+            <p className="product__card--price">${product?.price}</p>
+            <p className="product__card--description">{product?.description}</p>
           </div>
         </div>
         <h3 className="product__similar--title">Productos similares</h3>
         <div className="products__content">
-          {product.categoryId === undefined ? <Loading/> : render()}
+          {product?.categoryId === undefined ? <Loading/> : render()}
         </div>
       </div>
     </Layout>

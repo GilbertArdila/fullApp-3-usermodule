@@ -14,6 +14,7 @@ const Section = ({ category, id }) => {
     category: propTypes.node.isRequired,
     id: propTypes.node.isRequired,
   };
+  
   const [product, setProduct] = useState([]);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -34,6 +35,7 @@ const Section = ({ category, id }) => {
   };
 
   useEffect(() => {
+    
     getProducts();
     window.addEventListener("resize", handleResize);
     return () => {
@@ -51,7 +53,7 @@ const Section = ({ category, id }) => {
         </NavLink>
       </div>
       <div className="section__card">
-        {product.slice(0, cardNumber).map((product) => {
+        {product?.slice(0, cardNumber).map((product) => {
           return <Card key={product.id} producto={product} />;
         })}
       </div>

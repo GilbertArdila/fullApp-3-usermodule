@@ -27,6 +27,7 @@
 }
 .navbar__content input:focus {
   outline: none;
+  border: solid 2px #2a7ae4;
 }
 
 @media (min-width: 768px) {

@@ -10,8 +10,11 @@ export const SearcherProvider = ({ children }) => {
   const [searcher, setSearcher] = useState("");
 
   //getting data from api
-  const [categories, setCategories] = useState([]); //ok
+  const [categories, setCategories] = useState([]); 
   const [data, setData] = useState([]);
+  
+
+ 
 
   useEffect(() => {
     getAllCategories();
@@ -46,16 +49,20 @@ export const SearcherProvider = ({ children }) => {
     }
   }, [data, searcher]);
 
+ 
+
   return (
     <SearcherContext.Provider
       value={{
-        categories, //ok
-        setCategories, //ok
-        searcher, //ok
+        categories, 
+        setCategories, 
+        searcher, 
         setSearcher,
-        data, //ya
-        setData, //ya
-        filteredData, //ok
+        data, 
+        setData, 
+        filteredData, 
+        
+        
       }}
     >
       {children}

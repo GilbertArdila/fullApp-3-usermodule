@@ -21,6 +21,7 @@
     font-weight: 500;
     line-height: 16.44px;
     text-transform: capitalize;
+    color: #464646;
     width: 145px;
     height: 32px;
 }
@@ -29,6 +30,7 @@
     font-weight: 700;
     font-size: 1.6rem;  
     line-height: 18.75px;
+    color: #464646;
 }
 .card__link{
     font-family: 'Railway', sans-serif;
