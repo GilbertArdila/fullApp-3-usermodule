@@ -28,6 +28,7 @@ const Products = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     getCategoriesData();
   }, []);
 
@@ -76,6 +77,7 @@ const Products = () => {
     <Layout>
       <h3 className="products__title">Categoría {category}</h3>
       {products.length === 0 ? <Loading />:
+
       render()}
      
     </Layout>

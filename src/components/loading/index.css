@@ -3,10 +3,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 20vh;
-  width: 90%;
-  margin: 0 auto;
-  background-color:#fff;
+  height:80%;
+  width: 100%;
+  margin: auto;
+  top : 15%;
+  background-color: rgba(128, 128, 128, 0.5);
 }
 .container {
   display: flex;
@@ -87,4 +88,17 @@
   50% {
     transform: rotate(0deg);
   }
+}
+
+@media (min-width: 768px) {
+  .body {
+    top : 8%;
+  }
+ 
+}
+@media (min-width: 1024px) {
+  .body {
+    top : 15%;
+  }
+ 
 }

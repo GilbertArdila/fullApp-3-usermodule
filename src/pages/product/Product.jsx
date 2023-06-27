@@ -79,9 +79,13 @@ const Product = () => {
           </div>
         </div>
         <h3 className="product__similar--title">Productos similares</h3>
-        <div className="products__content">
-          {product?.categoryId === undefined ? <Loading/> : render()}
-        </div>
+       
+          {product?.categoryId === undefined ?
+          <Loading/>
+           :  <div className="products__content">
+            {render()}
+             </div>}
+       
       </div>
     </Layout>
   );
